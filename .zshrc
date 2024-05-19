@@ -25,9 +25,8 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # this loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # this loads nvm bash_completion
 
 #==========================================================
 # OTHER CONFIGS SETUP
@@ -92,17 +91,14 @@ _fzf_comprun() {
 }
 
 # bat - better cat
-file_to_preview_with_bat=~/work/it-cat/website/skynet/skynet-service/src/main/java/com/cloudera/skynet/api/v20/service/coveo/MSCoveoService.java
-alias bat-themes-preview='bat --list-themes | fzf --preview="bat --theme={} --color=always $file_to_preview_with_bat"'
-
 export BAT_THEME="TwoDark"
+alias cat="bat"
 
 # eza - better ls
 alias ls="eza --icons=always"
 
 # zoxide - better cd  
 eval "$(zoxide init zsh)"
-
 alias cd="z"
 
 # thefuck
@@ -113,36 +109,13 @@ eval $(thefuck --alias fk)
 # ALIASES
 #==========================================================
 
-# terminal
-alias cl="clear"
 alias cp="cp -i"
-alias more="less"
 alias grep="grep -i --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
-alias reload="source ~/.zshrc"
 
-# config files
-alias reload-zsh="source ~/.zshrc"
-alias edit-zsh="vim ~/.zshrc"
-alias edit-vim="vim ~/.vimrc"
+alias reload_zsh="source ~/.zshrc"
+alias edit_zsh="vim ~/.zshrc"
+alias edit_vim="vim ~/.vimrc"
 
-# git
-alias gI='git init'
-alias gA="git add ."
-alias gP="git push origin master"
-alias gL="git pull origin master"
-alias gC="gcmsg"
-alias gS="git status"
-alias glog="git log --oneline --all --graph --decorate"
-alias gitu="git add . && git commit && git push"
-
-# docker
-alias diL="docker images"
-alias dvL="docker volume ls"
-alias dnL="docker network ls"
-alias dR="docker run --rm"
-alias dS="docker stop"
-alias dps="docker ps"
-alias dpsa="docker ps -a"
-alias drm="docker rm"
-alias drmi="docker rmi"
-drma() { docker rm $(docker ps -aq ) }
+alias list_aliases='alias | fzf --preview "echo {} | cut -d'=' -f1 | xargs -I % sh -c '\''alias %'\'' | bat --style=plain"'
+alias list_env='env | cut -d= -f1 | fzf --preview "echo {}=\$(printenv {})"'
+alias list_bat_themes='bat --list-themes | fzf --preview="bat --theme={} --color=always ~/.zshrc"'
