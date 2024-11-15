@@ -25,10 +25,10 @@ config.keys = {
     -- close pane
     {key="w", mods="SUPER|SHIFT", action=wezterm.action.CloseCurrentPane{confirm=true}},
 
-    -- split horizontally
+    -- split pane horizontally
     {key="d", mods="SUPER|SHIFT", action=wezterm.action.SplitHorizontal{domain="CurrentPaneDomain"}},
 
-    -- split vertically
+    -- split pane vertically
     {key="v", mods="SUPER|SHIFT", action=wezterm.action.SplitVertical{domain="CurrentPaneDomain"}},
 
     -- resize panes
@@ -36,6 +36,10 @@ config.keys = {
     {key="RightArrow", mods="SUPER|SHIFT", action=wezterm.action.AdjustPaneSize{"Right", 5}},
     {key="UpArrow", mods="SUPER|SHIFT", action=wezterm.action.AdjustPaneSize{"Up", 5}},
     {key="DownArrow", mods="SUPER|SHIFT", action=wezterm.action.AdjustPaneSize{"Down", 5}},
+
+    -- rotate panes
+    {key="f", mods="SUPER|SHIFT", action=wezterm.action.RotatePanes "Clockwise"},
+    {key="b", mods="SUPER|SHIFT", action=wezterm.action.RotatePanes "CounterClockwise"},
 
     -- change focus
     {key="LeftArrow", mods="SUPER", action=wezterm.action.ActivatePaneDirection "Left"},
