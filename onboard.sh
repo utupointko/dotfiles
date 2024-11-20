@@ -40,6 +40,12 @@ function install_dependencies() {
         echo "error: failed to install zsh plugins"
         exit 1
     }
+
+    # install nvim
+    brew install -q nvim && git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim && rm -rf ~/.config/nvim/.git || {
+        echo "error: failed to install nvim"
+        exit 1
+    }
     
     # install additional tools
     brew install -q fzf fd git-delta bat eza zoxide tldr thefuck || {
