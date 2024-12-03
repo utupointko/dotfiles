@@ -56,6 +56,11 @@ function install_dependencies() {
         echo "error: failed to clone junegunn/fzf-git.sh.git repository"
         exit 1
     }
+
+    brew install -q --cask karabiner-elements || {
+        echo "error: failed to install fonts"
+        exit 1
+    }
 }
 
 function copy_dotfiles() {
