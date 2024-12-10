@@ -1,4 +1,7 @@
+[init]
+    defaultBranch = master
 [core]
+    editor = nvim
     pager = delta
 [interactive]
     diffFilter = delta --color-only
