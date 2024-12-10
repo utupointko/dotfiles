@@ -16,7 +16,7 @@ function install_dependencies() {
     echo "> installing dependencies..."
     
     # install fonts
-    brew tap -q homebrew/cask-fonts && brew install -q --cask font-meslo-lg-nerd-font || {
+    brew install -q --cask font-meslo-lg-nerd-font || {
         echo "error: failed to install fonts"
         exit 1
     }
@@ -99,7 +99,7 @@ function reload_configs() {
 
 function start_setup() {
     # uncomment the functions you want to run
-    # install_raycast
+    install_raycast
     install_dependencies
     copy_dotfiles
     set_gitconfig
