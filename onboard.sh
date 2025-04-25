@@ -48,7 +48,7 @@ function install_dependencies() {
     }
     
     # install additional tools
-    brew install -q fzf fd git-delta bat eza zoxide tldr thefuck || {
+    brew install -q fzf fd git-delta bat eza zoxide tldr thefuck yazi || {
         echo "error: failed to install additional tools"
         exit 1
     }
